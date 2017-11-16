@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="common/header :: common-header" />
+      <!--  HTML page name and path   :: Fragment Name. we did not mention template in the path because -->
+          <!--  all locations are relative to the path src/main/resources/template -->
+
+<body>
+
+    <div th:replace="common/navbar :: common-navbar"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1 class="text-center" th:text="#{copy.h1.text}"></h1>
+                    <p class="lead" th:text="#{copy.p.lead}"></p>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.container -->
+
+        <!--Marketing -->
+    <div class="container marketing">
+        <!--three columns of text-->
+        <div class="row">
+            <div class="col-lg-4 span4">
+                <a href="https://git-scm.com/book/en/v2">
+                    <img class="img-circle"
+                            src="http://valuebound.com/sites/default/files/2015-12/Beginners_guide_setting_up-git.jpg"
+                            alt="Git Book" width="140" height="140"/>
+                </a>
+                <h2>Raj <small class="member title"> Developer</small> </h2>
+                <div class="span4 collapse-group">
+                    <p class="collapse text-justify" th:text="#{copy.project.lead.intro}"></p>
+                    <p><a class="btn btn-primary btn-collapse" href="#" role="button" th:text="#{copy.viewdetails.button}"></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Featurettes-->
+    <hr class="featurette-divider" />
+    <div class="featurette">
+        <img class="featurette-image pull-right" th:src="@{/images/browser-icon-firefox.png}"/>
+        <h2 class="featurette-heading"> First Featurette heading. <span class="muted">it will blow your mind.</span> </h2>
+        <p class="developer">something written in spanish</p>
+    </div>
+
+    <hr class="featurette-divider" />
+    <div class="featurette">
+        <img class="featurette-image pull-left" th:src="@{/images/browser-icon-chrome.png}"/>
+        <h2 class="featurette-heading"> oh yeah <span class="muted">see for yourself.</span> </h2>
+        <p class="developer">something written in spanish</p>
+    </div>
+
+    <hr class="featurette-divider" />
+    <div class="featurette">
+        <img class="featurette-image pull-right" th:src="@{/images/browser-icon-safari.png}"/>
+        <h2 class="featurette-heading">lastly this one <span class="muted">checkmate.</span> </h2>
+        <p class="developer">something written in spanish</p>
+    </div>
+
+    <hr class="featurette-divider"/>
+
+    <!-- /END THE FEATURETTES-->
+
+    <!-- FOOTER-->
+    <footer>
+        <p>&copy; 2017 rajdeveloper.com &middot; <a href="#">Privacy</a> &middot; <a href="#"> Terms</a> </p>
+    </footer>
+
+<div th:replace="common/header :: before-body-scripts"></div>
+</body>
+</html>
