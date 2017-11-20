@@ -38,10 +38,10 @@ body{
     margin-top: -120px;
 }
 .featurette-image.pull-left{
-    margin-right: 40px;
+    margin-right: 30px;
 }
 .featurette-image.pull-right{
-    margin-left: 40px;
+    margin-left: 30px;
 }
 .featurette-heading{
     font-size: 50px;
