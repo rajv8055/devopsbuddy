@@ -149,6 +149,14 @@ public class User implements Serializable {
         return enabled;
     }
 
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
+
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
