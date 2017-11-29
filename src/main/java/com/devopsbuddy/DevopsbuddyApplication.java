@@ -8,6 +8,7 @@ import com.devopsbuddy.enums.PlansEnum;
 import com.devopsbuddy.enums.RolesEnum;
 import com.devopsbuddy.utils.UserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,6 +27,16 @@ import org.slf4j.LoggerFactory;
         @Autowired
         private UserService userService;
 
+        @Value("${webmaster.username}")
+        private String webmasterUsername;
+
+        @Value("${webmaster.password}")
+        private String webmasterPassword;
+
+        @Value("${webmaster.email}")
+        private String webmasterEmail;
+
+
         public static void main(String[] args) {
             SpringApplication.run(DevopsbuddyApplication.class, args);
         }
@@ -33,12 +44,11 @@ import org.slf4j.LoggerFactory;
         @Override
         public void run(String... strings) throws Exception {
 
-            String username="proUser";
-            String email ="proUser@devopsbuddy.com";
 
-            User user = UserUtils.createBasicUser(username, email);
+            User user = UserUtils.createBasicUser(webmasterUsername, webmasterEmail);
+            user.setPassword(webmasterPassword);
             Set<UserRole> userRoles = new HashSet<>();
-            userRoles.add(new UserRole(user, new Role(RolesEnum.BASIC)));
+            userRoles.add(new UserRole(user, new Role(RolesEnum.ADMIN)));
             LOG.debug("creating user with userName{}", user.getUsername());
             userService.createUser(user, PlansEnum.PRO, userRoles);
             LOG.info("user {} created", user.getUsername());
