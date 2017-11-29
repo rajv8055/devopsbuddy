@@ -32,7 +32,11 @@ import org.slf4j.LoggerFactory;
 
         @Override
         public void run(String... strings) throws Exception {
-            User user = UserUtils.createBasicUser();
+
+            String username="proUser";
+            String email ="proUser@devopsbuddy.com";
+
+            User user = UserUtils.createBasicUser(username, email);
             Set<UserRole> userRoles = new HashSet<>();
             userRoles.add(new UserRole(user, new Role(RolesEnum.BASIC)));
             LOG.debug("creating user with userName{}", user.getUsername());
